@@ -1,0 +1,66 @@
+void Pifagor_table()
+{
+    system("cls");
+    int size_cell = 2, size_table;
+    cout << "\n\n\t\t***ТАБЛИЦА ПИФАГОРА***"
+        << "\n\n\tВведите число, до которого нужно создать таблицу Пифагора: ";
+    cin >> size_table;
+    int tmp = size_table * size_table;
+    while (tmp / 10 != 0)
+    {
+        size_cell++;
+        tmp /= 10;
+    }
+    setlocale(LC_ALL, "C");
+                            // 1 raw
+    cout << '\t' << char(201);
+    for (int i = 1; i <= size_cell; i++) cout << char(205);
+    cout << char(209);
+    for (int cell = 0; cell < size_table; cell++)
+    {
+        for (int i = 0; i < size_cell; i++) cout << char(205);
+    }
+    cout << char(187) << endl;
+                            //2 raw
+    cout << '\t' << char(186);
+    printf("%*.c", size_cell, ' ');
+    cout << char(179);
+    for (int cell = 1; cell <= size_table; cell++)
+    {
+        printf("%*.d", size_cell, cell);
+    }
+    cout << char(186) << endl;
+                            //3 raw
+    cout << '\t' << char(199);
+    for (int i = 0; i < size_cell; i++) cout << char(196);
+    cout << char(197);
+    for (int cell = 0; cell < size_table; cell++)
+    {
+        for (int i = 0; i < size_cell; i++) cout << char(196);
+    }
+    cout << char(182) << endl;
+                            //All raws
+    for (int raw = 1; raw <= size_table; raw++)
+    {
+        cout << '\t' << char(186);
+        printf("%*.d", size_cell, raw);
+        cout << char(179);
+        for (int cell = 1; cell <= size_table; cell++)
+        {
+            printf("%*.d",size_cell, cell * raw);
+        }
+        cout << char(186) << endl;
+    }
+                            //Last raw
+    cout << '\t' << char(200);
+    for (int i = 1; i <= size_cell; i++) cout << char(205);
+    cout << char(207);
+    for (int cell = 0; cell < size_table; cell++)
+    {
+        for (int i = 0; i < size_cell; i++) cout << char(205);
+    }
+    cout << char(188) << endl;
+    setlocale(LC_ALL, "Russian");
+    cout << "Для возврата в главное меню нажмите клавишу \"esc\"";
+    if (_getch() == esc) main();
+}
